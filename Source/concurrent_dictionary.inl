@@ -3,8 +3,6 @@
 #include <iterator>
 #include <mutex>
 
-#include "key_not_found_exception.hpp"
-
 
 namespace vv
 {
@@ -50,7 +48,7 @@ bool ConcurrentDictionary<TKey, TValue>::IsSet(const TKey& key) const
 template <class TKey, class TValue>
 std::size_t ConcurrentDictionary<TKey, TValue>::Size() const noexcept
 {
-	return _data.size();
+	return std::size(_data);
 }
 
 } // namespace vv
