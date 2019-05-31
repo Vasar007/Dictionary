@@ -10,10 +10,17 @@ add_executable(${EXECUTABLE_NAME}
 )
 
 # GTest needs threading support
-find_package(Threads)
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
+
+if (CMAKE_USE_PTHREADS_INIT)
+    set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-pthread")
+endif()
 
 # Link test executable against gtest & gtest_main
 target_link_libraries(${EXECUTABLE_NAME} gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
+set_target_properties(${EXECUTABLE_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 ##################################
 # Just make the test runnable with
