@@ -2,8 +2,7 @@
 
 set -x
 
-if [ "$TRAVIS_OS_NAME" == "linux" ];
-    # Install GCC
+if [ "$TRAVIS_OS_NAME" == "linux" ]; then
     sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
     sudo apt-get update -qq
 
@@ -13,7 +12,6 @@ if [ "$TRAVIS_OS_NAME" == "linux" ];
     fi
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
 
-    # Install CMake
     CMAKE_VERSION=3.8.2
     CMAKE_VERSION_DIR=v3.8
 
