@@ -27,12 +27,6 @@ else ()
     message(FATAL_ERROR "Unsupported architecture.")
 endif()
 
-include_directories(Source)
-
-# Include sub-projects.
-add_subdirectory(Source)
-add_subdirectory(Tests)
-
 ################################
 # GTest
 ################################
@@ -46,3 +40,9 @@ include_directories(SYSTEM
     ${gtest_SOURCE_DIR}/include
     ${gtest_SOURCE_DIR}
 )
+
+include_directories(Source)
+
+# Include sub-projects.
+add_subdirectory(Source)
+add_subdirectory(Tests)

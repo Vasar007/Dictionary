@@ -18,6 +18,8 @@ if (CMAKE_USE_PTHREADS_INIT)
     set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-pthread")
 endif()
 
+message(STATUS "Got Threads: ${CMAKE_THREAD_LIBS_INIT}")
+
 # Link test executable against gtest & gtest_main
 target_link_libraries(${EXECUTABLE_NAME} gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
 set_target_properties(${EXECUTABLE_NAME} PROPERTIES LINKER_LANGUAGE CXX)
