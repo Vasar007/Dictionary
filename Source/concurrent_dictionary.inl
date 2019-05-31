@@ -2,6 +2,7 @@
 
 #include <iterator>
 #include <mutex>
+#include <shared_mutex>
 
 
 namespace vv
