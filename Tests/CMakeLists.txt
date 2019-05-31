@@ -1,15 +1,4 @@
 ################################
-# GTest
-################################
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-add_subdirectory(gtest-1.8.1)
-enable_testing()
-
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-
-################################
 # Unit Tests
 ################################
 

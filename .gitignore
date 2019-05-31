@@ -331,4 +331,4 @@ ASALocalRun/
 
 # User defined block
 out/
-gtest-1.8.1/
+gtest/

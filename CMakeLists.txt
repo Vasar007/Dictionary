@@ -32,3 +32,17 @@ include_directories(Source)
 # Include sub-projects.
 add_subdirectory(Source)
 add_subdirectory(Tests)
+
+################################
+# GTest
+################################
+
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+add_subdirectory(gtest)
+enable_testing()
+
+include_directories(SYSTEM
+    ${gtest_SOURCE_DIR}/include
+    ${gtest_SOURCE_DIR}
+)
