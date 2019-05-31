@@ -27,6 +27,16 @@ else ()
     message(FATAL_ERROR "Unsupported architecture.")
 endif()
 
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
+
+if (CMAKE_USE_PTHREADS_INIT)
+    set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-pthread")
+endif()
+
+message(STATUS "Got Threads: ${CMAKE_THREAD_LIBS_INIT}")
+
 ################################
 # GTest
 ################################

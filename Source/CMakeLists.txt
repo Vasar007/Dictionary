@@ -18,4 +18,5 @@ add_executable(${EXECUTABLE_NAME}
     "main.cpp"
 )
 
+target_link_libraries(${EXECUTABLE_NAME} ${CMAKE_THREAD_LIBS_INIT})
 set_target_properties(${EXECUTABLE_NAME} PROPERTIES LINKER_LANGUAGE CXX)
