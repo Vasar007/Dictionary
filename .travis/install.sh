@@ -26,7 +26,4 @@ if [ "$TRAVIS_OS_NAME" == "linux" ];
     mkdir -p $CMAKE_DIR
     tar --strip-components=1 -xzf $CMAKE_TAR -C $CMAKE_DIR
     export PATH=$CMAKE_DIR/bin:$PATH
-
-    # Install GTest
-    
 fi
