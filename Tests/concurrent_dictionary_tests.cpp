@@ -1,5 +1,5 @@
 #include "key_not_found_exception.hpp"
-#include "my_dictionary.hpp"
+#include "concurrent_dictionary.hpp"
 
 #include "gtest/gtest.h"
 
@@ -9,25 +9,25 @@ namespace tests
 
 TEST(DictionaryTests, IsEmptyInitially)
 {
-	const vv::MyDictionary<int, int> dict;
+	const vv::ConcurrentDictionary<int, int> dict;
 	EXPECT_EQ(0, dict.Size());
 }
 
 TEST(DictionaryTests, GetForEmpty)
 {
-	const vv::MyDictionary<int, int> dict;
+	const vv::ConcurrentDictionary<int, int> dict;
 	EXPECT_THROW(dict.Get(0), vv::KeyNotFoundException<int>);
 }
 
 TEST(DictionaryTests, IsSetForEmpty)
 {
-	const vv::MyDictionary<int, int> dict;
+	const vv::ConcurrentDictionary<int, int> dict;
 	EXPECT_FALSE(dict.IsSet(0));
 }
 
 TEST(DictionaryTests, SetOneElement)
 {
-	vv::MyDictionary<int, int> dict;
+	vv::ConcurrentDictionary<int, int> dict;
 
 	EXPECT_NO_THROW(dict.Set(0, 0));
 	EXPECT_TRUE(dict.IsSet(0));
@@ -40,7 +40,7 @@ TEST(DictionaryTests, SetOneElement)
 
 TEST(DictionaryTests, SetOneElementGetAnother)
 {
-	vv::MyDictionary<int, int> dict;
+	vv::ConcurrentDictionary<int, int> dict;
 
 	EXPECT_NO_THROW(dict.Set(0, 0));
 	EXPECT_FALSE(dict.IsSet(1));
@@ -50,7 +50,7 @@ TEST(DictionaryTests, SetOneElementGetAnother)
 
 TEST(DictionaryTests, SetTwoElements)
 {
-	vv::MyDictionary<int, int> dict;
+	vv::ConcurrentDictionary<int, int> dict;
 
 	EXPECT_NO_THROW(dict.Set(0, 0));
 	EXPECT_TRUE(dict.IsSet(0));
@@ -70,7 +70,7 @@ TEST(DictionaryTests, SetTwoElements)
 
 TEST(DictionaryTests, UpdateElement)
 {
-	vv::MyDictionary<int, int> dict;
+	vv::ConcurrentDictionary<int, int> dict;
 
 	EXPECT_NO_THROW(dict.Set(0, 0));
 	EXPECT_TRUE(dict.IsSet(0));
@@ -90,7 +90,7 @@ TEST(DictionaryTests, UpdateElement)
 
 TEST(DictionaryTests, UpdateElementWithSameValue)
 {
-	vv::MyDictionary<int, int> dict;
+	vv::ConcurrentDictionary<int, int> dict;
 
 	EXPECT_NO_THROW(dict.Set(0, 0));
 	EXPECT_TRUE(dict.IsSet(0));

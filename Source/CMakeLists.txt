@@ -12,8 +12,8 @@ add_executable(${EXECUTABLE_NAME}
     
     "dictionary.hpp"
     
-    "my_dictionary.hpp"
-    "my_dictionary.inl"
+    "concurrent_dictionary.hpp"
+    "concurrent_dictionary.inl"
 
     "main.cpp"
 )

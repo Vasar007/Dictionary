@@ -10,7 +10,7 @@ namespace vv
 {
 
 template <class TKey, class TValue>
-const TValue& MyDictionary<TKey, TValue>::Get(const TKey& key) const
+const TValue& ConcurrentDictionary<TKey, TValue>::Get(const TKey& key) const
 {
 	std::shared_lock lock(_mutex);
 
@@ -23,7 +23,7 @@ const TValue& MyDictionary<TKey, TValue>::Get(const TKey& key) const
 }
 
 template <class TKey, class TValue>
-void MyDictionary<TKey, TValue>::Set(const TKey& key, const TValue& value)
+void ConcurrentDictionary<TKey, TValue>::Set(const TKey& key, const TValue& value)
 {
 	std::unique_lock lock(_mutex);
 
@@ -39,7 +39,7 @@ void MyDictionary<TKey, TValue>::Set(const TKey& key, const TValue& value)
 }
 
 template <class TKey, class TValue>
-bool MyDictionary<TKey, TValue>::IsSet(const TKey& key) const
+bool ConcurrentDictionary<TKey, TValue>::IsSet(const TKey& key) const
 {
 	std::shared_lock lock(_mutex);
 
@@ -48,7 +48,7 @@ bool MyDictionary<TKey, TValue>::IsSet(const TKey& key) const
 }
 
 template <class TKey, class TValue>
-std::size_t MyDictionary<TKey, TValue>::Size() const noexcept
+std::size_t ConcurrentDictionary<TKey, TValue>::Size() const noexcept
 {
 	return _data.size();
 }

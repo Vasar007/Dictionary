@@ -17,7 +17,7 @@ set(EXECUTABLE_NAME "Tests")
 
 # Add test cpp file
 add_executable(${EXECUTABLE_NAME}
-    "my_dictionary_tests.cpp"
+    "concurrent_dictionary_tests.cpp"
 )
 
 # Link test executable against gtest & gtest_main

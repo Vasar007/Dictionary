@@ -35,20 +35,20 @@ namespace vv
 {
 
 template <class TKey, class TValue>
-class MyDictionary final : public Dictionary<TKey, TValue>
+class ConcurrentDictionary final : public Dictionary<TKey, TValue>
 {
 public:
-	MyDictionary() = default;
+	ConcurrentDictionary() = default;
 	
-	MyDictionary(const MyDictionary&) = delete;
+	ConcurrentDictionary(const ConcurrentDictionary&) = delete;
 	
-	MyDictionary(MyDictionary&&) = delete;
+	ConcurrentDictionary(ConcurrentDictionary&&) = delete;
 	
-	MyDictionary& operator=(const MyDictionary&) = delete;
+	ConcurrentDictionary& operator=(const ConcurrentDictionary&) = delete;
 	
-	MyDictionary& operator=(MyDictionary&&) = delete;
+	ConcurrentDictionary& operator=(ConcurrentDictionary&&) = delete;
 	
-	~MyDictionary() override = default;
+	~ConcurrentDictionary() override = default;
 
 	const TValue& Get(const TKey& key) const override;
 
@@ -66,4 +66,4 @@ private:
 
 } // namespace vv
 
-#include "my_dictionary.inl"
+#include "concurrent_dictionary.inl"

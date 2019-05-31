@@ -2,14 +2,14 @@
 #include <string>
 
 #include "key_not_found_exception.hpp"
-#include "my_dictionary.hpp"
+#include "concurrent_dictionary.hpp"
 
 
 int main()
 {
 	try
 	{
-		vv::MyDictionary<int, std::string> dict;
+		vv::ConcurrentDictionary<int, std::string> dict;
 		dict.Set(0, "value 0");
 		dict.Set(1, "2");
 		dict.Set(2, "2");
